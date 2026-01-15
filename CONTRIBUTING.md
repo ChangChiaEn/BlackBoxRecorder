@@ -1,8 +1,8 @@
 # Contributing to AgentBlackBoxRecorder
 
-First off, thank you for considering contributing to AgentBlackBoxRecorder! 🎉
+First off, thank you for considering contributing to AgentBlackBoxRecorder! 
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Code of Conduct](#code-of-conduct)
 - [Getting Started](#getting-started)
@@ -11,11 +11,11 @@ First off, thank you for considering contributing to AgentBlackBoxRecorder! 🎉
 - [Pull Request Process](#pull-request-process)
 - [Style Guidelines](#style-guidelines)
 
-## 📜 Code of Conduct
+## Code of Conduct
 
 This project and everyone participating in it is governed by our Code of Conduct. By participating, you are expected to uphold this code.
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -56,7 +56,7 @@ This project and everyone participating in it is governed by our Code of Conduct
    npm test
    ```
 
-## 🔧 How to Contribute
+## How to Contribute
 
 ### Reporting Bugs
 
@@ -79,7 +79,7 @@ This project and everyone participating in it is governed by our Code of Conduct
 4. Update documentation if needed
 5. Submit a pull request
 
-## 📝 Pull Request Process
+## Pull Request Process
 
 1. Update the README.md with details of changes if applicable
 2. Update the documentation with any new features
@@ -87,7 +87,7 @@ This project and everyone participating in it is governed by our Code of Conduct
 4. Ensure all tests pass
 5. Request review from maintainers
 
-## 🎨 Style Guidelines
+## Style Guidelines
 
 ### Python
 
@@ -108,10 +108,10 @@ This project and everyone participating in it is governed by our Code of Conduct
 - Example: `feat(sdk): add LangGraph adapter`
 - Types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`
 
-## 💬 Questions?
+## Questions?
 
 Feel free to open an issue or reach out to the maintainers!
 
 ---
 
-Thank you for contributing! 🙏
+Thank you for contributing! 
