@@ -1,0 +1,67 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  release-python:
+    runs-on: ubuntu-latest
+    environment: release
+    permissions:
+      id-token: write
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+      
+      - name: Build package
+        working-directory: packages/python
+        run: poetry build
+      
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: packages/python/dist/
+      
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: packages/python/dist/*
+          generate_release_notes: true
+
+  release-npm:
+    runs-on: ubuntu-latest
+    environment: release
+
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          registry-url: "https://registry.npmjs.org"
+      
+      - name: Install dependencies
+        working-directory: packages/web
+        run: npm ci
+      
+      - name: Build
+        working-directory: packages/web
+        run: npm run build
+      
+      - name: Publish to npm
+        working-directory: packages/web
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

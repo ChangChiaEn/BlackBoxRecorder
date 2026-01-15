@@ -1,0 +1,94 @@
+[tool.poetry]
+name = "agent-blackbox-recorder"
+version = "0.1.0"
+description = "Flight Recorder for Autonomous AI Agents - Debug, replay, and takeover agent execution"
+authors = ["AgentBlackBoxRecorder Contributors"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/yourusername/AgentBlackBoxRecorder"
+repository = "https://github.com/yourusername/AgentBlackBoxRecorder"
+documentation = "https://github.com/yourusername/AgentBlackBoxRecorder#readme"
+keywords = ["ai", "agents", "debugging", "langchain", "langgraph", "opentelemetry", "tracing"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Debuggers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed",
+]
+packages = [{ include = "agent_blackbox_recorder" }]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pydantic = "^2.0"
+opentelemetry-api = "^1.20"
+opentelemetry-sdk = "^1.20"
+opentelemetry-exporter-otlp = "^1.20"
+fastapi = "^0.109"
+uvicorn = { extras = ["standard"], version = "^0.27" }
+httpx = "^0.26"
+rich = "^13.0"
+typer = "^0.9"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0"
+pytest-cov = "^4.1"
+pytest-asyncio = "^0.23"
+ruff = "^0.2"
+mypy = "^1.8"
+pre-commit = "^3.6"
+
+[tool.poetry.group.adapters]
+optional = true
+
+[tool.poetry.group.adapters.dependencies]
+langgraph = "^0.2"
+langchain-core = "^0.3"
+openai = "^1.0"
+
+[tool.poetry.scripts]
+agentbox = "agent_blackbox_recorder.cli:app"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = [
+    "E",      # pycodestyle errors
+    "W",      # pycodestyle warnings
+    "F",      # Pyflakes
+    "I",      # isort
+    "B",      # flake8-bugbear
+    "C4",     # flake8-comprehensions
+    "UP",     # pyupgrade
+    "ARG",    # flake8-unused-arguments
+    "SIM",    # flake8-simplify
+]
+ignore = ["E501", "B008", "B006"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["agent_blackbox_recorder"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+warn_return_any = true
+warn_unused_ignores = true
+disallow_untyped_defs = true
+plugins = ["pydantic.mypy"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+addopts = "-v --tb=short"

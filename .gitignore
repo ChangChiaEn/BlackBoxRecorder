@@ -1,0 +1,63 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+dist/
+build/
+*.egg-info/
+*.egg
+*.whl
+__pycache__/
+*.py[cod]
+*$py.class
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+pytest_final.txt
+test_output.txt
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Traces (don't commit debug traces)
+traces/
+*.trace.json
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Package manager locks (keep one)
+# package-lock.json
+# yarn.lock
